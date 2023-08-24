@@ -17,11 +17,7 @@ let presentation = new TypeIt("#hello", {
         instance.destroy();
         const editableSpan = document.getElementById("editable");
         editableSpan.focus();
-        editableSpan.addEventListener('input', function () {
-            if (!this.textContent.trim()) {
-                this.innerHTML = '&zwnj;';
-            }
-        });
+        enableTerminal(editableSpan);
     }
 });
 
