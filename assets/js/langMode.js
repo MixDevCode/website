@@ -75,11 +75,7 @@ function resetLang() {
                 instance.destroy();
                 const editableSpan = document.getElementById("editable");
                 editableSpan.focus();
-                editableSpan.addEventListener('input', function () {
-                    if (!this.textContent.trim()) {
-                        this.innerHTML = '&zwnj;';
-                    }
-                });
+                enableTerminal(editableSpan);
             }
         }).type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;</span><span id='editable' contenteditable='true'>&zwnj;</span>").go();
     });
