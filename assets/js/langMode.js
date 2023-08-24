@@ -12,7 +12,17 @@ let resumeData;
 
 let presentation = new TypeIt("#hello", {
     lifeLike: true, 
-    speed: 25
+    speed: 25,
+    afterComplete: function (instance) {
+        instance.destroy();
+        const editableSpan = document.getElementById("editable");
+        editableSpan.focus();
+        editableSpan.addEventListener('input', function () {
+            if (!this.textContent.trim()) {
+                this.innerHTML = '&zwnj;';
+            }
+        });
+    }
 });
 
 // Evento de carga de la ventana
@@ -41,7 +51,7 @@ function initLang() {
             speed: 25,
             afterComplete: function (instance) {
                 instance.destroy();
-                presentation.type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;").go();
+                presentation.type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("<span contenteditable='false'>C:\\Users\\MixDev&gt;&nbsp;</span><span id='editable' contenteditable='true'>&zwnj;</span>").go();
             }
         }).type("node hello.js").go();
     });
@@ -64,8 +74,18 @@ function resetLang() {
         presentation.reset();
         presentation = new TypeIt("#hello", {
             lifeLike: true, 
-            speed: 25
-        }).type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;").go();
+            speed: 25,
+            afterComplete: function (instance) {
+                instance.destroy();
+                const editableSpan = document.getElementById("editable");
+                editableSpan.focus();
+                editableSpan.addEventListener('input', function () {
+                    if (!this.textContent.trim()) {
+                        this.innerHTML = '&zwnj;';
+                    }
+                });
+            }
+        }).type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;</span><span id='editable' contenteditable='true'>&zwnj;</span>").go();
     });
 
     localStorage.setItem("lang", langToSet);

@@ -90,3 +90,12 @@ html {
     margin-bottom: 10px;
     font-family: "Cascadia Mono";
 }
+
+span[contenteditable="true"]:focus {
+    outline: none;
+    border: none;
+}
+
+span[contenteditable="true"] {
+    vertical-align: baseline;
+}
