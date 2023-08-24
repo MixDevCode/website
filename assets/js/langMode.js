@@ -2,53 +2,71 @@
  * Lang Switch
  * Copyright 2023 MixDev
  */
-var lang = document.getElementById("lang");
 
+// Elementos HTML
+const lang = document.getElementById("lang");
+const elements = ["repos", "projects", "fire", "generateText", "generateBtn", "insta", "instaText", "instaBtn"];
+
+// Elementos TypeIt
+let resumeData;
+
+let presentation = new TypeIt("#hello", {
+    lifeLike: true, 
+    speed: 25
+});
+
+// Evento de carga de la ventana
 window.addEventListener("load", function () {
     if (lang) {
-      initLang();
-      lang.addEventListener("click", function () {
-        resetLang();
-      });
+        initLang();
+        lang.addEventListener("click", resetLang);
     }
 });
 
+// Inicialización del idioma
 function initLang() {
-    var langSelected =
-        localStorage.getItem("lang") !== null &&
-        localStorage.getItem("lang") === "es";
+    const langSelected = localStorage.getItem("lang") !== null && localStorage.getItem("lang") === "es";
     lang.innerText = langSelected ? "ES" : "EN";
     
     fetch(langSelected ? "./assets/json/es.json" : "./assets/json/en.json")
     .then(response => response.json())
     .then(data => {
-        document.getElementById("hello").innerText = data.hello;
-        document.getElementById("resume").innerHTML = data.resume;
-        document.getElementById("repos").innerText = data.repos;
+        elements.forEach(element => {
+            var elementObj = document.getElementById(element);
+            if (elementObj) {
+                elementObj.innerHTML = data[element];
+            }
+        });
+        new TypeIt('#node', {
+            speed: 25,
+            afterComplete: function (instance) {
+                instance.destroy();
+                presentation.type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;").go();
+            }
+        }).type("node hello.js").go();
     });
 }
+
+// Restablecer el idioma
 function resetLang() {
-if (localStorage.getItem("lang") === null) {
-    localStorage.setItem("lang", "en");
-    lang.innerText = "EN";
-    
-    fetch("./assets/json/en.json")
+    let langToSet = localStorage.getItem("lang") !== null && localStorage.getItem("lang") === "en" ? "es" : "en";
+    lang.innerText = langToSet == "en" ? "EN" : "ES";
+
+    fetch(langToSet == "en" ? "./assets/json/en.json" : "./assets/json/es.json")
     .then(response => response.json())
     .then(data => {
-        document.getElementById("hello").innerText = data.hello;
-        document.getElementById("resume").innerHTML = data.resume;
-        document.getElementById("repos").innerText = data.repos;
+        elements.forEach(element => {
+            var elementObj = document.getElementById(element);
+            if (elementObj) {
+                elementObj.innerHTML = data[element];
+            }
+        });
+        presentation.reset();
+        presentation = new TypeIt("#hello", {
+            lifeLike: true, 
+            speed: 25
+        }).type(data["hello"]).break().break().type(data["resume"]).break().break().type(data["social"]).break().break().type("C:\\Users\\MixDev&gt;&nbsp;").go();
     });
-} else {
-    localStorage.removeItem("lang");
-    lang.innerText = "ES";
-    
-    fetch("./assets/json/es.json")
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("hello").innerText = data.hello;
-        document.getElementById("resume").innerHTML = data.resume;
-        document.getElementById("repos").innerText = data.repos;
-    });
-}
+
+    localStorage.setItem("lang", langToSet);
 }

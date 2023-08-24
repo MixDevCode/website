@@ -1,5 +1,13 @@
 {
     "hello": "Hola, soy Mix :)",
     "resume": "Un programador con conocimientos en <b>Node.js</b>, <b>HTML5</b>, <b>PHP</b>, <b>MySQL</b>, <b>MongoDB</b>, <b>Python</b> y <b>CSS</b>.",
-    "repos": "Mis Mejores Repositorios"
+    "repos": "Mis Mejores Repositorios",
+    "projects": "Mis Proyectos",
+    "fire": "Generador de Textos de Fuego",
+    "generateText": "Texto a Generar",
+    "generateBtn": "Generar GIF",
+    "insta": "Instagram Open Graph",
+    "instaText": "URL del Reel/Video de Instagram",
+    "instaBtn": "Generar Reels/Video OG",
+    "social": "Te invito a ver mi <a href='https://github.com/MixDevCode' target='_blank' class='text-decoration-none'>GitHub</a> y mi perfil de <a href='https://github.com/MixDevCode' target='_blank' class='text-decoration-none'>Linkedin</a>."
 }

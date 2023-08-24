@@ -1,0 +1,26 @@
+{
+    "fire":
+    {
+        "ES": {
+            "name": "Generador de Textos de Fuego",
+            "description": "A través de un link, puedes generar un texto de fuego sin necesidad de recurrir a ningún sitio web."
+        },
+        "EN": {
+            "name": "Fire Text Generator",
+            "description": "Through a link, you can generate a fire text without having to rely on any website."
+        },
+        "url": "https://mixdev.online/fire.html"
+    }
+    ,
+    "insta-opengraph": {
+        "ES": {
+            "name": "Instagram Open Graph",
+            "description": "Permite compartir reels/videos de Instagram a cualquier red y reproducir los videos sin necesidad de ingresar en la app."
+        },
+        "EN": {
+            "name": "Instagram Open Graph",
+            "description": "Allows you to share reels/videos from Instagram to any network and play the videos without having to enter the app."
+        },
+        "url": "https://mixdev.online/insta-opengraph.html"
+    }
+}

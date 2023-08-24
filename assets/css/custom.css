@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Cascadia Mono";
+    src: url('../fonts/CascadiaMono-Regular.woff2');
+}
+
 html {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -58,4 +63,30 @@ html {
 
 .fade-in {
     animation: fade-in 1s ease-in-out;
+}
+
+/* Terminaaal */
+
+.terminal {
+    color: #ccd0d1;
+    padding: 10px;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #404040;
+    padding: 5px;
+    color: #ffffff;
+}
+
+.terminal-body {
+    height: 68vh;
+    padding: 10px;
+    background-color: #000000;
+    overflow-y: scroll;
+    border: 1px solid #404040;
+    margin-bottom: 10px;
+    font-family: "Cascadia Mono";
 }
