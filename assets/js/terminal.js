@@ -259,6 +259,62 @@ function enableTerminal(span) {
                     spanID.textContent = "‌";
                     spanID.focus();
                     break;
+                case 'start':
+                    let launchMessage = '';
+                    if(line.length > 0) {
+                        if(line[0].startsWith('https://') || line[0].startsWith('http://')) {
+                            try {
+                                let browser = document.getElementById("browserSim");
+                                let browserFrame = document.getElementById("browserFrame");
+                                let browserInput = document.getElementById("searchInput");
+                                browserFrame.src = 'http://proxy.mixdev.online/?url=' + line[0];
+                                browserInput.value = line[0];
+                                browser.style.display = 'block';
+                            } catch (e) {
+                                launchMessage = e.message;
+                            }
+                        } else if (line[0] == 'browser') {
+                            try {
+                                let browser = document.getElementById("browserSim");
+                                let browserFrame = document.getElementById("browserFrame");
+                                let browserInput = document.getElementById("searchInput");
+                                browserFrame.src = "https://arzookhann.github.io/Google-Chrome-Page/";
+                                browserInput.value = "New Tab";
+                                browserInput.focus();
+                                browser.style.display = 'block';
+                            }
+                            catch (e) {
+                                launchMessage = e.message;
+                            }
+                        }
+                    } else {
+                        launchMessage = 'The system cannot find the file '+line[0];
+                    }
+                    
+                        // Crear un nuevo elemento div para contener el contenido
+                    var newDiv = document.createElement('div');
+
+                    // Construir el contenido que deseas agregar como una cadena de texto
+                    var content = '<p id="commandExec' + randomNum + '"></p>';
+
+                    // Asignar la cadena de texto como el innerHTML del nuevo div
+                    newDiv.innerHTML = content;
+
+                    // Agregar el nuevo div donde desees en tu documento, por ejemplo, después del span
+                    span.parentNode.insertBefore(newDiv, span.nextSibling);
+                    span.removeAttribute('contenteditable');
+                    new TypeIt(`#commandExec${randomNum}`, {
+                        speed: 25,
+                        humanLike: true,
+                        afterComplete: function (instance) {
+                            instance.destroy();
+                            var pElement = document.createElement('p');
+                            pElement.id = `command${randomNum}`;
+                            newDiv.appendChild(pElement);
+                            createNewLine(randomNum);
+                        }
+                    }).type(launchMessage).go();
+                    break;
                 default:
                     break;
             }

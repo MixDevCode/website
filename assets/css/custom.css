@@ -99,3 +99,79 @@ span[contenteditable="true"]:focus {
 span[contenteditable="true"] {
     vertical-align: baseline;
 }
+
+/* Browser */
+
+.browser-simulator {
+    height: 500px;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    min-height: 200px;
+    min-width: 275px;
+}
+
+.browser-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.browser-header i {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.browser-body {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.disabledIcon {
+    pointer-events: none;
+}
+
+.disabledButton {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.browser-nav {
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.search-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
