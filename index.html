@@ -184,7 +184,7 @@
         searchButton.addEventListener('click', () => {
             const url = searchInput.value;
             if (isValidURL(url)) {
-                iframeContent.src = url;
+                iframeContent.src = 'https://cors-anywhere.herokuapp.com/https://proxy.mixdev.online/?url=' + url;
             } else {
                 alert('Por favor, ingrese una URL válida.');
             }
