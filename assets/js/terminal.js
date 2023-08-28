@@ -267,7 +267,7 @@ function enableTerminal(span) {
                                 let browser = document.getElementById("browserSim");
                                 let browserFrame = document.getElementById("browserFrame");
                                 let browserInput = document.getElementById("searchInput");
-                                browserFrame.src = 'https://cors-anywhere.herokuapp.com/https://proxy.mixdev.online/?url=' + line[0];
+                                browserFrame.src = 'https://proxy.mixdev.online/?url=' + line[0];
                                 browserInput.value = line[0];
                                 browser.style.display = 'block';
                             } catch (e) {
@@ -278,7 +278,6 @@ function enableTerminal(span) {
                                 let browser = document.getElementById("browserSim");
                                 let browserFrame = document.getElementById("browserFrame");
                                 let browserInput = document.getElementById("searchInput");
-                                browserFrame.src = "https://arzookhann.github.io/Google-Chrome-Page/";
                                 browserInput.value = "New Tab";
                                 browserInput.focus();
                                 browser.style.display = 'block';

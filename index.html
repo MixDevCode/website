@@ -78,7 +78,7 @@
             </div>
             <div class="browser-body">
                 <!-- Contenido de tu navegador simulado -->
-                <iframe width="100%" height="100%" id="browserFrame" frameborder="0"></iframe>
+                <iframe width="100%" src="https://arzookhann.github.io/Google-Chrome-Page/" height="100%" id="browserFrame" frameborder="0"></iframe>
             </div>
             <div class="resize-handle bottom-right" id="resizeHandle"></div>
         </div>
@@ -184,7 +184,7 @@
         searchButton.addEventListener('click', () => {
             const url = searchInput.value;
             if (isValidURL(url)) {
-                iframeContent.src = 'https://cors-anywhere.herokuapp.com/https://proxy.mixdev.online/?url=' + url;
+                iframeContent.src = url;
             } else {
                 alert('Por favor, ingrese una URL válida.');
             }
@@ -196,34 +196,11 @@
             return pattern.test(url);
         }
 
-        // Botón de volver: retrocede en la historia del iframe
-        backButton.addEventListener('click', () => {
-            iframeContent.contentWindow.history.back();
-        });
-
-        // Botón de adelante: avanza en la historia del iframe
-        forwardButton.addEventListener('click', () => {
-            iframeContent.contentWindow.history.forward();
-        });
-
-        // Botón de recargar: recarga la página dentro del iframe
-        reloadButton.addEventListener('click', () => {
-            iframeContent.contentWindow.location.reload();
-        });
-
-        iframeContent.addEventListener("load", () => {
-            iframeContent.contentWindow.history && ! iframeContent.contentWindow.history.back ? forwardButton.classList.add("disabledButton") : forwardButton.classList.remove("disabledButton");
-            iframeContent.contentWindow.history && ! iframeContent.contentWindow.history.forward ? backButton.classList.add("disabledButton") : backButton.classList.remove("disabledButton");
-        })
-    </script>
-    <script>
-        
-    </script>
-    <script>
         document.getElementById('closeBrowser').addEventListener('click', () => {
             const browserSimulator = document.getElementById('browserSim');
             browserSimulator.style.display = 'none';
         });
+
     </script>
 </body>
 </html>
