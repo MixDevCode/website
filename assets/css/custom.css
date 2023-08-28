@@ -123,6 +123,8 @@ span[contenteditable="true"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -ms-touch-action: none;
+      touch-action: none;
 }
 
 .browser-header i {
